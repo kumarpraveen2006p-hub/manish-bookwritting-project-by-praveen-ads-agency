@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RemoteKaro - Work From Home Jobs & Remote Career Platform</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        telegram: {
+                            500: '#0088cc',
+                            600: '#0077b5',
+                            700: '#006699'
+                        },
+                        brand: {
+                            50: '#f0f5ff',
+                            100: '#e0ebff',
+                            500: '#4361ee',
+                            600: '#3a0ca3',
+                            700: '#4cc9f0',
+                            accent: '#10b981',
+                            warning: '#f72585'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #4361ee 0%, #7209b7 50%, #f72585 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg {
+            background: radial-gradient(circle at 50% 0%, rgba(67, 97, 238, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 0.4; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+        .pulse-ring-effect {
+            animation: pulse-ring 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Top Notification Bar with Telegram Highlight -->
+    <div class="bg-gradient-to-r from-telegram-600 via-indigo-600 to-emerald-600 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium shadow-sm flex items-center justify-center gap-2 flex-wrap">
+        <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">🔥 100% Free Application</span>
+        <span>500+ Verified WFH Jobs Active!</span>
+        <a href="https://t.me/yourchannel" target="_blank" class="inline-flex items-center gap-1 font-bold underline hover:text-amber-300 ml-1">
+            <i class="fa-brands fa-telegram"></i> Telegram Pe Daily Job Alerts Payein →
+        </a>
+    </div>
+
+    <!-- Sticky Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-2">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-indigo-600 flex items-center justify-center text-white text-xl font-black shadow-lg shadow-brand-500/30">
+                    <i class="fa-solid fa-laptop-house"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-extrabold tracking-tight text-slate-900">Remote<span class="text-brand-500">Karo</span></span>
+                    <span class="text-[10px] text-slate-500 font-semibold -mt-1">Ghar Se Kaam, Flexi Pay</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-7 font-semibold text-slate-600 text-sm">
+                <a href="#benefits" class="hover:text-brand-500 transition-colors">Benefits</a>
+                <a href="#jobs" class="hover:text-brand-500 transition-colors">Open Jobs</a>
+                <a href="#telegram-section" class="hover:text-telegram-500 transition-colors flex items-center gap-1">
+                    <i class="fa-brands fa-telegram text-telegram-500 text-base"></i> Telegram Alerts
+                </a>
+                <a href="#calculator" class="hover:text-brand-500 transition-colors">Income Calculator</a>
+                <a href="#how-it-works" class="hover:text-brand-500 transition-colors">How It Works</a>
+                <a href="#faqs" class="hover:text-brand-500 transition-colors">FAQs</a>
+            </nav>
+
+            <!-- Header Action Buttons -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="https://t.me/yourchannel" target="_blank" class="bg-telegram-500 hover:bg-telegram-600 text-white px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md shadow-telegram-500/20 hover:scale-[1.02] active:scale-95 transition-all">
+                    <i class="fa-brands fa-telegram text-lg"></i>
+                    <span>Join Telegram</span>
+                </a>
+                <button onclick="openApplyModal('Navbar Free Apply')" class="bg-gradient-to-r from-brand-500 to-indigo-600 text-white px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm shadow-md hover:shadow-brand-500/25 hover:scale-[1.02] active:scale-95 transition-all">
+                    Apply Now <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <button id="mobileMenuBtn" class="lg:hidden text-slate-700 hover:text-brand-500 focus:outline-none p-2">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Navigation -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3">
+            <a href="#benefits" class="block py-2 text-slate-700 font-medium hover:text-brand-500">Benefits</a>
+            <a href="#jobs" class="block py-2 text-slate-700 font-medium hover:text-brand-500">Open Jobs</a>
+            <a href="https://t.me/yourchannel" target="_blank" class="block py-2 text-telegram-500 font-bold flex items-center gap-2">
+                <i class="fa-brands fa-telegram text-xl"></i> Join Telegram Channel (45K+ Members)
+            </a>
+            <a href="#calculator" class="block py-2 text-slate-700 font-medium hover:text-brand-500">Income Calculator</a>
+            <a href="#how-it-works" class="block py-2 text-slate-700 font-medium hover:text-brand-500">How It Works</a>
+            <a href="#faqs" class="block py-2 text-slate-700 font-medium hover:text-brand-500">FAQs</a>
+            
+            <div class="grid grid-cols-2 gap-3 pt-2">
+                <a href="https://t.me/yourchannel" target="_blank" class="bg-telegram-500 text-white py-3 rounded-xl font-bold text-center text-sm shadow-md flex items-center justify-center gap-1.5">
+                    <i class="fa-brands fa-telegram text-lg"></i> Telegram
+                </a>
+                <button onclick="openApplyModal('Mobile Menu Application')" class="bg-brand-500 text-white py-3 rounded-xl font-bold text-center text-sm shadow-md">
+                    Instant Apply
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-10 pb-16 lg:pt-16 lg:pb-24 overflow-hidden hero-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Hero Content -->
+                    <div class="lg:col-span-7 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs sm:text-sm font-semibold mb-6">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span>Over 2,400+ Verified Remote Jobs Live Today</span>
+                        </div>
+                        
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-6">
+                            Ghar Baith Kar Earn Karein <br class="hidden sm:inline">
+                            <span class="gradient-text">₹25,000 - ₹90,000+</span> Har Mahine!
+                        </h1>
+
+                        <p class="text-lg sm:text-xl text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            No commute, no office stress! Flexi timings ke saath top Indian & global companies me kaam karein. Freshers aur experienced sabhi ke liye 100% free verified roles.
+                        </p>
+
+                        <!-- CTA Action Area including Telegram Primary CTA -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+                            <!-- Primary Apply Button -->
+                            <button onclick="openApplyModal('Hero Direct Apply')" class="w-full sm:w-auto bg-gradient-to-r from-brand-500 via-indigo-600 to-brand-600 text-white text-base sm:text-lg font-bold px-7 py-4 rounded-2xl shadow-xl shadow-brand-500/30 hover:shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2.5">
+                                <i class="fa-solid fa-bolt text-yellow-300"></i>
+                                <span>Apply For Jobs Free</span>
+                            </button>
+
+                            <!-- Prominent Telegram Button in Hero -->
+                            <a href="https://t.me/yourchannel" target="_blank" class="w-full sm:w-auto bg-telegram-500 hover:bg-telegram-600 text-white text-base sm:text-lg font-bold px-7 py-4 rounded-2xl shadow-xl shadow-telegram-500/30 hover:shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2.5">
+                                <i class="fa-brands fa-telegram text-2xl"></i>
+                                <span>Join Telegram Alerts</span>
+                            </a>
+                        </div>
+
+                        <!-- Trust Markers / Key Highlights -->
+                        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200/80 max-w-xl mx-auto lg:mx-0">
+                            <div>
+                                <div class="text-2xl sm:text-3xl font-extrabold text-slate-900">100%</div>
+                                <div class="text-xs sm:text-sm text-slate-500 font-medium">Verified Jobs</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl sm:text-3xl font-extrabold text-slate-900">45K+</div>
+                                <div class="text-xs sm:text-sm text-slate-500 font-medium">Telegram Members</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl sm:text-3xl font-extrabold text-slate-900">₹0</div>
+                                <div class="text-xs sm:text-sm text-slate-500 font-medium">Registration Fee</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Form Card -->
+                    <div class="lg:col-span-5">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <div class="absolute -top-6 -right-6 w-72 h-72 bg-gradient-to-br from-brand-500/20 to-telegram-500/20 rounded-full blur-3xl -z-10"></div>
+                            
+                            <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+                                <div class="flex items-center justify-between mb-6">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-xl">
+                                            <i class="fa-solid fa-shield-halved"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-bold text-slate-900 text-base">Quick Profile Match</h3>
+                                            <p class="text-xs text-slate-500">Takes less than 60 seconds</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs bg-brand-50 text-brand-600 px-2.5 py-1 rounded-full font-bold">Fast-Track</span>
+                                </div>
+
+                                <!-- Quick Mini Form -->
+                                <form id="quickHeroForm" onsubmit="handleQuickSubmit(event)" class="space-y-4">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Aapka Poora Naam (Full Name)</label>
+                                        <input type="text" id="heroName" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-white">
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Mobile / WhatsApp Number</label>
+                                        <div class="flex">
+                                            <span class="inline-flex items-center px-3 rounded-l-xl border border-r-0 border-slate-200 bg-slate-100 text-slate-600 text-sm font-semibold">+91</span>
+                                            <input type="tel" id="heroPhone" required pattern="[0-9]{10}" placeholder="10 digit number" class="w-full px-4 py-3 rounded-r-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-white">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Preferred Work Field</label>
+                                        <select id="heroRole" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-white text-slate-700">
+                                            <option value="Customer Support">Customer Support / Telecalling</option>
+                                            <option value="Data Entry / Back Office">Data Entry / Back Office</option>
+                                            <option value="Content Writing">Content Writing / Translation</option>
+                                            <option value="Digital Marketing">Digital Marketing & Social Media</option>
+                                            <option value="IT & Web Development">IT & Web Development</option>
+                                        </select>
+                                    </div>
+
+                                    <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-500/25 transition-all text-sm uppercase tracking-wider flex items-center justify-center gap-2">
+                                        <span>Get Instant Matching Jobs</span>
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                    </button>
+                                </form>
+
+                                <!-- Direct Telegram Link in Card -->
+                                <div class="mt-4 pt-3 border-t border-slate-200/80 text-center">
+                                    <p class="text-xs text-slate-500">
+                                        Prefer Telegram updates? 
+                                        <a href="https://t.me/yourchannel" target="_blank" class="text-telegram-500 font-bold hover:underline inline-flex items-center gap-1">
+                                            <i class="fa-brands fa-telegram"></i> Click Here To Join
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Dedicated Telegram Channel Banner Section -->
+        <section id="telegram-section" class="py-12 bg-gradient-to-r from-telegram-600 via-sky-600 to-indigo-700 text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-6 sm:p-10 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+                    
+                    <div class="flex items-center gap-5 text-center md:text-left">
+                        <div class="w-20 h-20 rounded-3xl bg-white text-telegram-500 flex items-center justify-center text-4xl shadow-xl shrink-0 mx-auto md:mx-0">
+                            <i class="fa-brands fa-telegram"></i>
+                        </div>
+                        <div>
+                            <div class="inline-flex items-center gap-2 bg-amber-400 text-slate-900 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+                                <i class="fa-solid fa-bolt"></i> Fastest Job Alerts Channel
+                            </div>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Daily WFH Job Openings Direct On Telegram</h2>
+                            <p class="text-sky-100 text-sm mt-1 max-w-xl">
+                                Join 45,000+ candidates! Har roz morning me direct HR numbers, walk-in remote interviews aur high-paying work-from-home vacancies receive karein.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto shrink-0">
+                        <div class="text-center md:text-right hidden lg:block mr-2">
+                            <div class="text-2xl font-black text-white">45,800+</div>
+                            <div class="text-xs text-sky-200">Active Telegram Subscribers</div>
+                        </div>
+                        <a href="https://t.me/yourchannel" target="_blank" class="w-full sm:w-auto bg-white text-telegram-600 hover:bg-slate-100 font-extrabold text-base px-8 py-4 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-telegram text-2xl"></i>
+                            <span>Join Telegram Group Free</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Work From Home? (Key Benefits Section) -->
+        <section id="benefits" class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-brand-500 font-bold text-sm tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full">Kyun Remote Work Chunne?</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Ghar Se Kaam Karne Ke Sabse Bade Fayde</h2>
+                    <p class="text-slate-600">Apne comfort zone mein rehkar high paying remote jobs mein career banayein.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Benefit Card 1 -->
+                    <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl font-bold mb-5">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Flexible Work Hours</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Full-time ya Part-time? Aap khud tay karein aapke working hours. Perfect for students, homemakers & pros.
+                        </p>
+                    </div>
+
+                    <!-- Benefit Card 2 -->
+                    <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl font-bold mb-5">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Zero Transport Expense</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Daily traffic aur travel ka kharcha bilkul ₹0. Apni mehnat ki kamayi ka 100% savings karein.
+                        </p>
+                    </div>
+
+                    <!-- Benefit Card 3 -->
+                    <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl font-bold mb-5">
+                            <i class="fa-solid fa-earth-americas"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Global & Pan-India Jobs</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Aap India ke kisi bhi shahar ya gaon se international & top metro companies ke liye kaam kar sakte hain.
+                        </p>
+                    </div>
+
+                    <!-- Benefit Card 4 -->
+                    <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-2xl font-bold mb-5">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Work-Life Balance</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Apne parivaar ke saath zyada waqt bitayein aur bina kisi stress ke professional growth haasil karein.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Earnings Estimator Widget -->
+        <section id="calculator" class="py-16 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl">
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <span class="text-emerald-400 text-xs font-bold uppercase tracking-widest bg-emerald-500/20 px-3 py-1 rounded-full">Interactive Earnings Calculator</span>
+                        <h2 class="text-3xl font-extrabold mt-3 text-white">Aap Kitna Kamayeinge? Check Karein!</h2>
+                        <p class="text-slate-300 text-sm mt-2">Apne hours aur domain ke mutabiq estimated monthly salary dekhein.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between font-medium text-sm mb-2">
+                                    <span>Daily Working Hours:</span>
+                                    <span id="hoursVal" class="text-brand-700 font-bold text-base">4 Hours / Day</span>
+                                </div>
+                                <input type="range" id="hoursInput" min="2" max="10" value="4" step="1" oninput="calculateSalary()" class="w-full accent-brand-500 h-2 bg-slate-700 rounded-lg cursor-pointer">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Select Your Job Skill Level:</label>
+                                <select id="skillLevel" onchange="calculateSalary()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
+                                    <option value="entry">Fresher / Beginner (Basic Computer / Voice)</option>
+                                    <option value="mid" selected>Intermediate (1-2 yrs Exp / Marketing / Content)</option>
+                                    <option value="expert">Expert / Specialist (Developer / Design / Sales Lead)</option>
+                                </select>
+                            </div>
+
+                            <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700 text-xs text-slate-400">
+                                <i class="fa-solid fa-circle-info text-brand-500 mr-1"></i> Based on average industry pay scale for remote talent in 2026.
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-tr from-brand-500 to-indigo-600 rounded-2xl p-8 text-center shadow-xl relative overflow-hidden">
+                            <div class="text-sm uppercase font-semibold text-white/80 tracking-wider">Estimated Monthly Earnings</div>
+                            <div class="text-4xl sm:text-5xl font-black text-white my-3" id="salaryDisplay">₹28,000 - ₹35,000</div>
+                            <div class="text-xs text-emerald-300 font-medium mb-6">Payouts via Bank Transfer / UPI / Weekly Option</div>
+                            
+                            <button onclick="openApplyModal('From Calculator Widget')" class="w-full bg-white text-slate-900 font-extrabold py-3.5 px-6 rounded-xl hover:bg-slate-100 transition-all shadow-lg text-sm mb-3">
+                                Claim This Salary Role <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </button>
+                            <a href="https://t.me/yourchannel" target="_blank" class="inline-flex items-center justify-center gap-1.5 text-xs text-sky-200 hover:text-white font-semibold">
+                                <i class="fa-brands fa-telegram"></i> Get Daily Salary Role Alerts On Telegram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Job Categories & Filterable Open Jobs -->
+        <section id="jobs" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <span class="text-brand-500 font-bold text-sm tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full">Top Remote Roles</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Featured Work From Home Jobs</h2>
+                    </div>
+                    
+                    <!-- Category Filter Buttons -->
+                    <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="filterContainer">
+                        <button onclick="filterJobs('all')" class="filter-btn active bg-brand-500 text-white px-4 py-2 rounded-xl text-sm font-semibold transition-all">All Roles</button>
+                        <button onclick="filterJobs('support')" class="filter-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl text-sm font-semibold transition-all">Customer Support</button>
+                        <button onclick="filterJobs('writing')" class="filter-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl text-sm font-semibold transition-all">Writing & Data</button>
+                        <button onclick="filterJobs('marketing')" class="filter-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl text-sm font-semibold transition-all">Marketing</button>
+                        <button onclick="filterJobs('tech')" class="filter-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl text-sm font-semibold transition-all">Tech & IT</button>
+                    </div>
+                </div>
+
+                <!-- Job Cards Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="jobGrid">
+                    
+                    <!-- Job Card 1 -->
+                    <div class="job-card support bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-500 hover:shadow-lg transition-all">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Immediate Joining</span>
+                                <span class="text-xs text-slate-400 font-medium">Full-Time / Part-Time</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">Customer Support Executive</h3>
+                            <p class="text-xs text-slate-500 font-semibold mb-4">Voice & Chat Support (Hindi / English)</p>
+                            
+                            <ul class="space-y-2 text-sm text-slate-600 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Good Communication Skills</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Smartphone / Laptop Required</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Freshers Can Apply</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between border-t border-slate-200/80 pt-4 mb-4">
+                                <span class="text-xs text-slate-500">Salary Package</span>
+                                <span class="text-lg font-extrabold text-slate-900">₹22,000 - ₹35,000 <span class="text-xs font-normal text-slate-500">/mo</span></span>
+                            </div>
+                            <button onclick="openApplyModal('Customer Support Executive')" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3 rounded-xl transition-all shadow-md text-sm">
+                                Apply For Role
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Job Card 2 -->
+                    <div class="job-card writing bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-500 hover:shadow-lg transition-all">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">Flexible Timings</span>
+                                <span class="text-xs text-slate-400 font-medium">Freelance / Full-Time</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">Content Writer & Translator</h3>
+                            <p class="text-xs text-slate-500 font-semibold mb-4">Blogs, Articles & Social Media Content</p>
+                            
+                            <ul class="space-y-2 text-sm text-slate-600 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Basic Grammar & Writing Knowledge</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Flexible Work Hours</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Per-Article / Monthly Payouts</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between border-t border-slate-200/80 pt-4 mb-4">
+                                <span class="text-xs text-slate-500">Salary Package</span>
+                                <span class="text-lg font-extrabold text-slate-900">₹25,000 - ₹45,000 <span class="text-xs font-normal text-slate-500">/mo</span></span>
+                            </div>
+                            <button onclick="openApplyModal('Content Writer & Translator')" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3 rounded-xl transition-all shadow-md text-sm">
+                                Apply For Role
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Job Card 3 -->
+                    <div class="job-card marketing bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-500 hover:shadow-lg transition-all">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full">High Demand</span>
+                                <span class="text-xs text-slate-400 font-medium">Full-Time</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">Digital Marketing Assistant</h3>
+                            <p class="text-xs text-slate-500 font-semibold mb-4">SEO, Meta Ads & Social Media Lead Gen</p>
+                            
+                            <ul class="space-y-2 text-sm text-slate-600 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Knowledge of Instagram & Facebook Ads</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Performance Incentives Extra</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Laptop Required</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between border-t border-slate-200/80 pt-4 mb-4">
+                                <span class="text-xs text-slate-500">Salary Package</span>
+                                <span class="text-lg font-extrabold text-slate-900">₹30,000 - ₹55,000 <span class="text-xs font-normal text-slate-500">/mo</span></span>
+                            </div>
+                            <button onclick="openApplyModal('Digital Marketing Assistant')" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3 rounded-xl transition-all shadow-md text-sm">
+                                Apply For Role
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Job Card 4 -->
+                    <div class="job-card writing bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-500 hover:shadow-lg transition-all">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full">Easy Entry</span>
+                                <span class="text-xs text-slate-400 font-medium">Part-Time</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">Data Entry Specialist</h3>
+                            <p class="text-xs text-slate-500 font-semibold mb-4">Excel, Form Filling & Record Maintenance</p>
+                            
+                            <ul class="space-y-2 text-sm text-slate-600 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Good Typing Speed</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Basic MS Excel / Google Sheets</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> 10th/12th Pass Eligible</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between border-t border-slate-200/80 pt-4 mb-4">
+                                <span class="text-xs text-slate-500">Salary Package</span>
+                                <span class="text-lg font-extrabold text-slate-900">₹18,000 - ₹28,000 <span class="text-xs font-normal text-slate-500">/mo</span></span>
+                            </div>
+                            <button onclick="openApplyModal('Data Entry Specialist')" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3 rounded-xl transition-all shadow-md text-sm">
+                                Apply For Role
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Job Card 5 -->
+                    <div class="job-card tech bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-500 hover:shadow-lg transition-all">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-rose-100 text-rose-800 text-xs font-bold px-3 py-1 rounded-full">High Salary</span>
+                                <span class="text-xs text-slate-400 font-medium">Full-Time</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">Frontend React Developer</h3>
+                            <p class="text-xs text-slate-500 font-semibold mb-4">Web Application UI Development</p>
+                            
+                            <ul class="space-y-2 text-sm text-slate-600 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> HTML, CSS, JavaScript, React</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> 1+ Year Experience Required</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> USD Payout Opportunities</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between border-t border-slate-200/80 pt-4 mb-4">
+                                <span class="text-xs text-slate-500">Salary Package</span>
+                                <span class="text-lg font-extrabold text-slate-900">₹50,000 - ₹95,000 <span class="text-xs font-normal text-slate-500">/mo</span></span>
+                            </div>
+                            <button onclick="openApplyModal('Frontend React Developer')" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3 rounded-xl transition-all shadow-md text-sm">
+                                Apply For Role
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Job Card 6 -->
+                    <div class="job-card support bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-500 hover:shadow-lg transition-all">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-teal-100 text-teal-800 text-xs font-bold px-3 py-1 rounded-full">No Cold Calling</span>
+                                <span class="text-xs text-slate-400 font-medium">Full-Time</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">Virtual Assistant</h3>
+                            <p class="text-xs text-slate-500 font-semibold mb-4">Email Management, Scheduling & Coordination</p>
+                            
+                            <ul class="space-y-2 text-sm text-slate-600 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Organizational Skills</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Fluent English Communication</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Work with Global Clients</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between border-t border-slate-200/80 pt-4 mb-4">
+                                <span class="text-xs text-slate-500">Salary Package</span>
+                                <span class="text-lg font-extrabold text-slate-900">₹35,000 - ₹60,000 <span class="text-xs font-normal text-slate-500">/mo</span></span>
+                            </div>
+                            <button onclick="openApplyModal('Virtual Assistant')" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3 rounded-xl transition-all shadow-md text-sm">
+                                Apply For Role
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works (3 Steps) -->
+        <section id="how-it-works" class="py-20 bg-slate-50 border-t border-slate-200/70">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-brand-500 font-bold text-sm tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full">Simple 3 Steps Process</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Job Paana Ab Bilkul Aasaan Hai</h2>
+                    <p class="text-slate-600">Bina kisi fees ya lambe process ke 3 aasaan steps me job shuru karein.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 relative">
+                    <!-- Step 1 -->
+                    <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm relative z-10 text-center">
+                        <div class="w-16 h-16 rounded-2xl bg-brand-500 text-white text-2xl font-black flex items-center justify-center mx-auto mb-6 shadow-lg shadow-brand-500/30">
+                            1
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Free Profile Register Karein</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Apna naam, contact number aur skills submit karein. Koi registration fee nahi hai.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm relative z-10 text-center">
+                        <div class="w-16 h-16 rounded-2xl bg-telegram-500 text-white text-2xl font-black flex items-center justify-center mx-auto mb-6 shadow-lg shadow-telegram-500/30">
+                            2
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">HR Interview & Telegram Match</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Telegram & Call par HR team aapke experience & interest ke mutabiq profile verify karti hai.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm relative z-10 text-center">
+                        <div class="w-16 h-16 rounded-2xl bg-emerald-500 text-white text-2xl font-black flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/30">
+                            3
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Work & Weekly Payouts</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Ghar se kaam start karein aur har week/month seedhe apne Bank account me payout receive karein.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Accordion Section -->
+        <section id="faqs" class="py-20 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-brand-500 font-bold text-sm tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full">Got Questions?</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-3">Frequently Asked Questions</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                            <span>Kya mujhe koi registration fee pay karni hogi?</span>
+                            <i class="fa-solid fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden p-5 pt-0 text-sm text-slate-600 border-t border-slate-100">
+                            Bilkul nahi! RemoteKaro platform par sabhi candidates ke liye apply karna 100% Free hai. Agar koi aapse paise maange toh woh fraud ho sakta hai. Hum kabhi kisi tarah ki joining fee nahi lete.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                            <span>Telegram Channel me judne ke kya fayde hain?</span>
+                            <i class="fa-solid fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden p-5 pt-0 text-sm text-slate-600 border-t border-slate-100">
+                            Telegram par har daily morning me instant job listings, direct HR WhatsApp/Email contacts aur direct hiring links upload hote hain pehle aao pehle paao basis par.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                            <span>Mera salary payout kab aur kaise milega?</span>
+                            <i class="fa-solid fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden p-5 pt-0 text-sm text-slate-600 border-t border-slate-100">
+                            Payout aapke job contract ke according Weekly ya Monthly basis par direct Bank NEFT/IMPS ya UPI dwara credit hota hai.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Banner -->
+        <section class="py-16 bg-gradient-to-r from-brand-600 via-indigo-600 to-brand-500 text-white relative overflow-hidden">
+            <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Aaj Hi Work From Home Journey Shuru Karein!</h2>
+                <p class="text-indigo-100 text-base max-w-2xl mx-auto mb-8">
+                    Thousands of open positions are waiting for you. Apply now in under 1 minute or join our active Telegram group.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button onclick="openApplyModal('Bottom Banner CTA')" class="w-full sm:w-auto bg-white text-slate-900 font-extrabold text-lg px-8 py-4 rounded-2xl hover:bg-slate-100 shadow-2xl transition-all hover:scale-105">
+                        Start Applying Now (Free) <i class="fa-solid fa-bolt text-amber-500 ml-2"></i>
+                    </button>
+                    <a href="https://t.me/yourchannel" target="_blank" class="w-full sm:w-auto bg-telegram-500 hover:bg-telegram-600 text-white font-extrabold text-lg px-8 py-4 rounded-2xl shadow-2xl transition-all hover:scale-105 flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-telegram text-2xl"></i>
+                        <span>Join Telegram Community</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center text-white font-bold">
+                            <i class="fa-solid fa-laptop-house"></i>
+                        </div>
+                        <span class="text-lg font-bold text-white">RemoteKaro</span>
+                    </div>
+                    <p class="text-xs leading-relaxed">
+                        India's trusted work-from-home portal connecting job seekers directly with verified remote employers.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Popular Categories</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#jobs" class="hover:text-white transition-colors">Customer Service</a></li>
+                        <li><a href="#jobs" class="hover:text-white transition-colors">Data Entry Jobs</a></li>
+                        <li><a href="#jobs" class="hover:text-white transition-colors">Content Writing</a></li>
+                        <li><a href="#jobs" class="hover:text-white transition-colors">Virtual Assistant</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Community Links</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="https://t.me/yourchannel" target="_blank" class="hover:text-telegram-500 transition-colors font-bold text-telegram-500 flex items-center gap-1"><i class="fa-brands fa-telegram"></i> Telegram Channel</a></li>
+                        <li><a href="#benefits" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#how-it-works" class="hover:text-white transition-colors">How it works</a></li>
+                        <li><a href="#faqs" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Support & Helpline</h4>
+                    <p class="text-xs mb-3">Questions? Contact our team anytime.</p>
+                    <div class="flex items-center gap-2 text-xs text-white font-semibold">
+                        <i class="fa-solid fa-envelope text-brand-500"></i> support@remotekaro.in
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-white font-semibold mt-2">
+                        <i class="fa-brands fa-telegram text-telegram-500"></i> @RemoteKaroSupport
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-6 text-center text-xs">
+                © 2026 RemoteKaro. All rights reserved. Built for Remote Workers across India.
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY FLOATING TELEGRAM BUTTON (Bottom Right Corner) -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+        <!-- Floating Tooltip Label -->
+        <a href="https://t.me/yourchannel" target="_blank" class="hidden sm:flex items-center gap-2 bg-slate-900/90 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-xl backdrop-blur-md border border-slate-700 hover:bg-slate-900 transition-all">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>Join Telegram Alerts</span>
+        </a>
+
+        <!-- Main Circular Pulse Button -->
+        <a href="https://t.me/yourchannel" target="_blank" aria-label="Join Telegram" class="relative group">
+            <span class="absolute -inset-1 rounded-full bg-telegram-500 pulse-ring-effect -z-10"></span>
+            <div class="w-14 h-14 rounded-full bg-telegram-500 hover:bg-telegram-600 text-white flex items-center justify-center text-2xl shadow-2xl hover:scale-110 active:scale-95 transition-all">
+                <i class="fa-brands fa-telegram"></i>
+            </div>
+        </a>
+    </div>
+
+    <!-- Lead Capture Modal with Integrated Telegram Action -->
+    <div id="applyModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <!-- Close Button -->
+            <button onclick="closeApplyModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 text-xl font-bold p-1">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Form State -->
+            <div id="modalFormContainer">
+                <div class="mb-6">
+                    <span class="text-emerald-600 bg-emerald-50 text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Free Direct Application</span>
+                    <h3 class="text-2xl font-extrabold text-slate-900 mt-2" id="modalTitle">Apply For Remote Role</h3>
+                    <p class="text-slate-500 text-xs mt-1">Fill out your details to receive an instant callback/WhatsApp notification from HR.</p>
+                </div>
+
+                <form id="modalForm" onsubmit="handleModalSubmit(event)" class="space-y-4">
+                    <input type="hidden" id="selectedRoleInput" name="role" value="General Application">
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Aapka Full Name</label>
+                        <input type="text" id="modalName" required placeholder="e.g. Anish Kumar" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">WhatsApp Number</label>
+                            <input type="tel" id="modalPhone" required pattern="[0-9]{10}" placeholder="10 Digit Number" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Email Address</label>
+                            <input type="email" id="modalEmail" required placeholder="name@email.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Experience Level</label>
+                            <select id="modalExp" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm text-slate-700">
+                                <option value="Fresher">Fresher (0 Years)</option>
+                                <option value="1-2 Years">1 - 2 Years</option>
+                                <option value="3+ Years">3+ Years</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Current State/City</label>
+                            <input type="text" id="modalCity" required placeholder="e.g. Delhi / Patna" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Upload Resume (Optional)</label>
+                        <div class="border-2 border-dashed border-slate-200 rounded-xl p-4 text-center cursor-pointer hover:border-brand-500 transition-colors bg-slate-50" onclick="document.getElementById('resumeFile').click()">
+                            <i class="fa-solid fa-cloud-arrow-up text-brand-500 text-2xl mb-1"></i>
+                            <p class="text-xs text-slate-600 font-semibold" id="fileText">Click to select PDF/DOC file</p>
+                            <input type="file" id="resumeFile" class="hidden" accept=".pdf,.doc,.docx" onchange="updateFileName(this)">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-extrabold py-3.5 rounded-xl shadow-lg shadow-brand-500/30 transition-all text-sm uppercase tracking-wider">
+                        Submit Free Application <i class="fa-solid fa-check-circle ml-1"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Modal Post-Submission Telegram Success Screen -->
+            <div id="modalSuccessContainer" class="hidden text-center py-4">
+                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-2">Application Received!</h3>
+                <p class="text-slate-600 text-sm mb-6">
+                    Aapka profile shortlisting ke liye submit ho chuka hai. Fast HR updates aur instant callback ke liye hamara official Telegram channel join karein!
+                </p>
+
+                <a href="https://t.me/yourchannel" target="_blank" class="w-full bg-telegram-500 hover:bg-telegram-600 text-white font-extrabold py-4 px-6 rounded-2xl shadow-xl shadow-telegram-500/30 flex items-center justify-center gap-2.5 text-base transition-all mb-3">
+                    <i class="fa-brands fa-telegram text-2xl"></i>
+                    <span>Join Official Telegram Channel Now</span>
+                </a>
+
+                <button onclick="closeApplyModal()" class="text-slate-400 text-xs font-semibold hover:text-slate-600 underline">
+                    Close window
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast Notification -->
+    <div id="toast" class="fixed bottom-5 left-5 z-50 hidden bg-emerald-600 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 animate-in slide-in-from-bottom">
+        <i class="fa-solid fa-circle-check text-2xl"></i>
+        <div>
+            <h5 class="font-bold text-sm">Application Successfully Submitted!</h5>
+            <p class="text-xs text-emerald-100">Check Telegram & WhatsApp for fast updates.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Interactive Salary Calculator Logic
+        function calculateSalary() {
+            const hours = parseInt(document.getElementById('hoursInput').value);
+            const level = document.getElementById('skillLevel').value;
+            
+            document.getElementById('hoursVal').innerText = `${hours} Hours / Day`;
+            
+            let baseRate = 200; // base hourly rate approx in INR
+            if (level === 'mid') baseRate = 350;
+            if (level === 'expert') baseRate = 700;
+            
+            const monthlyMin = Math.round((hours * baseRate * 24) / 1000) * 1000;
+            const monthlyMax = Math.round(monthlyMin * 1.35 / 1000) * 1000;
+
+            document.getElementById('salaryDisplay').innerText = `₹${monthlyMin.toLocaleString('en-IN')} - ₹${monthlyMax.toLocaleString('en-IN')}`;
+        }
+
+        // Job Filter Functionality
+        function filterJobs(category) {
+            const cards = document.querySelectorAll('.job-card');
+            const btns = document.querySelectorAll('.filter-btn');
+            
+            btns.forEach(btn => {
+                btn.classList.remove('bg-brand-500', 'text-white');
+                btn.classList.add('bg-slate-100', 'text-slate-700');
+            });
+            event.target.classList.add('bg-brand-500', 'text-white');
+            event.target.classList.remove('bg-slate-100', 'text-slate-700');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // FAQ Accordion Toggle
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Modal Functionality
+        function openApplyModal(roleName) {
+            document.getElementById('modalFormContainer').classList.remove('hidden');
+            document.getElementById('modalSuccessContainer').classList.add('hidden');
+            document.getElementById('modalTitle').innerText = `Apply For: ${roleName}`;
+            document.getElementById('selectedRoleInput').value = roleName;
+            document.getElementById('applyModal').classList.remove('hidden');
+        }
+
+        function closeApplyModal() {
+            document.getElementById('applyModal').classList.add('hidden');
+        }
+
+        function updateFileName(input) {
+            if (input.files && input.files[0]) {
+                document.getElementById('fileText').innerText = `Selected: ${input.files[0].name}`;
+            }
+        }
+
+        // Form Submission Handlers
+        function handleQuickSubmit(e) {
+            e.preventDefault();
+            showToast();
+            document.getElementById('quickHeroForm').reset();
+            openApplyModal('Quick Match Hero Form');
+            document.getElementById('modalFormContainer').classList.add('hidden');
+            document.getElementById('modalSuccessContainer').classList.remove('hidden');
+        }
+
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            document.getElementById('modalFormContainer').classList.add('hidden');
+            document.getElementById('modalSuccessContainer').classList.remove('hidden');
+            showToast();
+            document.getElementById('modalForm').reset();
+            document.getElementById('fileText').innerText = "Click to select PDF/DOC file";
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+
+        // Close modal on click outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('applyModal');
+            if (event.target === modal) {
+                closeApplyModal();
+            }
+        }
+    </script>
+</body>
+</html>
